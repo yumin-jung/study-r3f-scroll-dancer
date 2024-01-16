@@ -1,9 +1,18 @@
+import styled from "styled-components";
+import { MainCanvas } from "./components/MAinCanvas";
+
 function App() {
   return (
-    <>
-      Hello Scroll Dancer
-    </>
+    <Wrapper>
+      <MainCanvas />
+    </Wrapper>
   )
 }
 
 export default App
+
+const Wrapper = styled.div`
+width: 100vw;
+height:100vh;
+overflow:hidden;
+`
