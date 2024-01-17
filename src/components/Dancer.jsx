@@ -7,6 +7,8 @@ import { IsEnteredAtom } from "../stores";
 import { Loader } from "./Loader";
 import gsap from "gsap";
 
+let timeline;
+
 export const Dancer = () => {
     const three = useThree();
     const isEntered = useRecoilValue(IsEnteredAtom);
@@ -48,9 +50,26 @@ export const Dancer = () => {
         );
     }, [isEntered, three.camera.position, three.camera.rotation]);
 
+    useEffect(() => {
+        if (!isEntered) return;
+        if (!dancerRef.current) return;
+        timeline = gsap.timeline();
+        timeline.from(
+            dancerRef.current.rotation,
+            {
+                duration: 4,
+                y: -4 * Math.PI
+            },
+            0.5
+        )
+    }, [isEntered]);
+
+
     const scroll = useScroll();
 
     useFrame(() => {
+        if (!isEntered) return;
+        timeline.seek(scroll.offset * timeline.duration());
     })
 
     if (isEntered) {
