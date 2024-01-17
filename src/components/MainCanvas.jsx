@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { Dancer } from "./Dancer";
 import { Suspense } from "react";
 import { Loader } from "./Loader";
-import { MovingDOM } from "./dom/MovingDom";
+import { MovingDOM } from "./dom/MovingDOM";
 import { useRecoilValue } from "recoil";
 import { IsEnteredAtom } from "../stores";
 
