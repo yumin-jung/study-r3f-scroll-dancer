@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { Box, Circle, Points, PositionalAudio, useAnimations, useGLTF, useScroll, useTexture } from "@react-three/drei"
+import { Box, Circle, Points, useAnimations, useGLTF, useScroll, useTexture } from "@react-three/drei"
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
@@ -333,14 +333,14 @@ export const Dancer = () => {
                         alphaTest={0.001}
                     />
                 </Points>
-                <PositionalAudio
+                {/* <PositionalAudio
                     position={[-25, 0, 0]}
                     setVolume={0.5}
                     autoplay
                     url="/audio/bgm.mp3"
                     distance={60}
                     loop
-                />
+                /> */}
             </>
         )
     }
